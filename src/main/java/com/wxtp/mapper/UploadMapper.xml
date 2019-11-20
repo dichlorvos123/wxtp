@@ -1,0 +1,28 @@
+<!-- <?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wxtp.mapper.IndexMapper" >
+  <resultMap id="BaseResultMap" type="com.wxtp.pojo.Users" >  
+    <id column="name" property="name"  />
+    <result column="dept" property="dept"   />
+    <result column="deptno" property="deptno"  />
+    <result column="ketoupiaoshu" property="ketoupiaoshu"  />
+    
+    <result column="phoneno" property="phoneno"   />
+    <result column="PhotoURL" property="PhotoURL"   />
+    <result column="introduction" property="introduction"   />
+  <result column="password" property="password"   />
+  </resultMap>
+       <select id="LoginByCode" resultMap="BaseResultMap"   >
+             select * from users  
+       </select> 
+       
+       
+      <select id="comparisonWXID"  resultType="java.lang.Integer" >
+             select * from users where wxid='%${wxid}%'
+      </select>
+       
+       <select id="phoneCheck"  resultMap="BaseResultMap"  parameterType ="String">
+             select * from users where phoneno=#{_parameter}
+       </select>
+       
+</mapper> -->

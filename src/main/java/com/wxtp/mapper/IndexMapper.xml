@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wxtp.mapper.IndexMapper" >
+  <resultMap id="BaseResultMap" type="com.wxtp.pojo.Users" >  
+    <id column="name" property="name"  />
+    <result column="id" property="id"   />
+    <result column="dept" property="dept"   />
+    <result column="deptno" property="deptno"  />
+    <result column="ketoupiaoshu" property="ketoupiaoshu"  />
+    
+    <result column="phoneno" property="phoneno"   />
+    <result column="PhotoURL" property="PhotoURL"   />
+    <result column="introduction" property="introduction"   />
+  <result column="password" property="password"   />
+  </resultMap>
+       <select id="LoginByCode" resultMap="BaseResultMap"   >
+             select * from users  
+       </select> 
+       
+       
+      <select id="comparisonWXID"  resultType="java.lang.Integer" >
+             select * from users where wxid='%${wxid}%'
+      </select>
+       
+       <select id="phoneCheck"  resultMap="BaseResultMap"  parameterType ="String">
+             select * from users where phoneno=#{_parameter}
+       </select>
+       
+      <insert  id="addUsers" parameterType="com.wxtp.pojo.Users" >
+           INSERT INTO users (name,dept,deptno,ketoupiaoshu,phoneno,PhotoURL,introduction,password,motto)
+			VALUES ('${name}','${dept}',${deptno},${ketoupiaoshu},'${phoneno}','${PhotoURL}','${introduction}',${password},'${motto}')
+      </insert>
+       
+       <select id="adminselect"  resultMap="BaseResultMap"  parameterType ="com.wxtp.pojo.Users">
+           SELECT * FROM users WHERE name LIKE '%${dept}%' or dept like '%${dept}%' or phoneno like '%${dept}%'
+       </select>
+       
+         <update id="adminupdate"  parameterType="com.wxtp.pojo.Users">
+                UPDATE users
+				SET name='${name}',dept='${dept}',deptno=${deptno},ketoupiaoshu='${ketoupiaoshu}',phoneno='${phoneno}',PhotoURL='${phoneno}',introduction='${introduction}',motto='${motto}'
+				WHERE id=${id}
+       
+       </update>
+       
+        <delete id="admindel"  parameterType ="String"> 
+            DELETE FROM users  WHERE id=${id}  
+       </delete>
+       
+       
+       
+</mapper>

@@ -1,0 +1,378 @@
+ html { 
+	font-family: 'Lantinghei SC', 'Open Sans', Arial, 'Hiragino Sans GB', 'Microsoft YaHei', 微软雅黑, STHeiti, 'WenQuanYi Micro Hei', SimSun, sans-serif;
+	/*谷歌浏览器字体最小字体12px*/
+	-webkit-text-size-adjust: 100%;/*100%/none 关闭字体大小自动调整功能*/
+	/*a标签及拥有 :active伪类的元素有默认的高亮框*/
+	-webkit-tap-hightlight-color: transparent;
+	/*禁止文本被选中*/
+	-webkit-user-select: none;
+}
+body{
+	overflow-x:hidden;
+	/*开启moblie网页快速滚动和回弹的效果*/
+    height: 100%;
+    width: 100%;
+    color: #555;
+  	background-color: #f9f9f9;
+}
+/* 禁用iPhone中Safari的字号自动调整 */
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  /* 解决IOS默认滑动很卡的情况 */
+  -webkit-overflow-scrolling : touch;
+    height: 100%;
+    width: 100%;
+} 
+/* 禁止缩放表单 */
+input[type="submit"], input[type="reset"], input[type="button"], input {
+  resize: none;
+  border: none;
+}
+
+/* 取消链接高亮  */
+body, div, ul, li, ol, h1, h2, h3, h4, h5, h6, input, textarea, select, p, dl, dt, dd, a, img, button, form, table, th, tr, td, tbody, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/* 设置HTML5元素为块 */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+textarea{
+    outline: none;
+}
+
+/* 图片自适应 */
+img {
+  width: 100%;
+  height: auto;
+  width: auto\9; /* ie8 */
+  display: block;
+  -ms-interpolation-mode: bicubic;/*为了照顾ie图片缩放失真*/
+}
+input,select{
+    -webkit-appearance: none;
+    appearance: none;
+}
+select{
+    background: #fff;
+    color: #555;
+    /*background-image:url('../img/up.png');*/
+    background-repeat:no-repeat;
+    background-position: right center;
+    background-size: 0.5rem 100%;
+    /*background: url('../../img/up.png') no-repeat right center;*/
+}
+
+/* 初始化 */
+body, div, ul, li, ol, h1, h2, h3, h4, h5, h6, input, textarea, select, p, dl, dt, dd, a, img, button, form, table, th, tr, td, tbody, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  margin: 0;
+  padding: 0;
+}
+em, i {
+  font-style: normal;
+}
+ul,li{
+  list-style-type: none;
+}
+strong {
+  font-weight: normal;
+}
+a {
+  text-decoration: none;
+  color: #969696; 
+}
+a:hover {
+  text-decoration: none;
+}
+ul, ol {
+  list-style: none;
+}
+img {
+  border: none;
+}
+input{
+  font-family: 'Microsoft YaHei';
+}
+/*单行溢出*/
+.one-txt-cut{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+/*多行溢出 手机端使用*/
+.txt-cut{
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+   -webkit-line-clamp: 2; 
+  -webkit-box-orient: vertical;
+}
+/* 移动端点击a链接出现蓝色背景问题解决 */
+a:link,a:active,a:visited,a:hover {
+  background: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: transparent;
+}
+
+body{
+		background: url(../img/login.jpg) no-repeat;
+	background-size: 100% 100%;
+}
+header{
+	height: 120px;
+	display: flex;
+	padding: 0 10%;
+	justify-content: space-between;
+	position: relative;
+	z-index: 99;
+	align-items: center;
+}
+
+.logo-img{
+	background: url(../img/now-logo.png) no-repeat;
+	background-size: auto 100%;
+	display: block;
+	width: 350px;
+	height: 100px;
+	z-index: 99; 
+}
+.container { 
+	width: 340px;
+	height: 40px;
+	position: relative;
+}
+.parent {
+    position: relative;
+}
+.search {
+    width: 300px;
+    height: 40px;
+    border-radius: 18px;
+    outline: none;
+    border: 1px solid #ccc;
+    padding-left: 20px;
+    position: absolute;
+    font-size: 14px;
+}
+.btn {
+    height: 35px;
+    width: 24px;
+    position: absolute;
+    background: url("../img/search.png") no-repeat;
+    background-size: 100% auto ;
+    top: 8px;
+    right: 35px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+.popup{
+	position: fixed;
+	top: 120px;
+	left: 0;
+	right: 0;
+	z-index: 999;
+	bottom: 0;
+}
+.search-list{
+	position: absolute;
+	top: 35%;
+	left: 0%;
+	right: 0;
+	border-radius: 10px;
+	background: #fff;
+	width: 600px; 
+	padding: 20px;
+	text-align: center;
+	margin: 0 auto;
+}
+.search-list table{
+	width: 100%;
+}
+.search-list table td{
+	height: 50px;
+	line-height: 50px;
+}
+.popup-mask{
+	background-color: rgba(0,0,0,.3);
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	right: 0;
+}
+
+.login-dl{
+	position: relative;
+	z-index: 99;
+}
+.login-dl dl{
+	display: flex;
+	background-color: rgba(255, 255, 255, 0.1);
+	border-radius: 40px;
+	padding-left: 14px;
+	height: 50px;
+	align-items: center;
+	width: 80%;
+	margin:0 auto 20px;
+}
+.name dt{
+	background: url(../img/name.png) no-repeat;
+}
+.campaignSlogan dt{
+	background: url(../img/campaignSlogan.png) no-repeat;
+}
+.dept dt{
+	background: url(../img/dept.png) no-repeat;
+}
+.introduction dt{
+	background: url(../img/introduction.png) no-repeat;
+}
+.userPhone dt{
+	background: url(../img/iphone.png) no-repeat;
+}
+.photo dt{
+	background: url(../img/photo.png) no-repeat;
+}
+.voteNumber dt{
+	background: url(../img/voteNumber.png) no-repeat;
+}
+.login-dl dl dt{
+	display: block;
+	width: 22px;
+	height: 22px;
+	background-size: 20px;
+}
+.login-dl dl dd{
+	padding-left: 10px; 
+	width: 100%;
+
+}
+.login-dl dl dd input{
+	padding: 4px 10px;
+	font-size: 14px;
+	border: 1px solid #ccc;
+	background: none;
+	border: none;
+	color: #fff;
+}
+select{
+	background: none;
+	color: #999;
+	border: none;
+	margin-left: 10px;
+	width: 95%;
+	font-size: 14px;
+} 
+.noPeople{
+	font-size: 20px;
+	width: 80px;
+}
+button{
+	margin: 0 auto;
+	padding: 4px 10px;
+}
+textarea{
+	background: none;
+	border: none;
+	min-width: 95%;
+	max-width: 95%;
+	line-height: 22px;
+	color: #FFFFFF;
+	margin-left: 10px;
+}
+input{
+	width: 100%;
+}
+
+.clerkAdd{
+
+	padding: 30px;
+}
+.mask{
+	z-index: 1;
+  background: linear-gradient(0deg, rgba(44, 44, 44, 0.2), rgba(224, 23, 3, 0.6));
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.mask::before{
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+z-index: 0;
+width: 100%;
+height: 100%;
+display: block;
+left: 0;
+top: 0;
+content: "";
+}
+.tablebtn{
+	margin: 0 6px;
+	border: none;
+	border-radius: 10px;
+	padding: 6px 16px;
+	cursor: pointer;
+}
+
+.footer-btn{
+	position: relative;
+	z-index: 98;
+	text-align: center;
+	display: flex;
+	align-items: center;
+}
+.footer-btn button{
+	color:#FFFFFF;
+	box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.17);
+	border: none;
+	line-height: 1.35em;
+	padding: 12px 40px !important;
+	border-radius: 30px !important;
+	width: 200px;
+	font-size: 18px;
+	font-weight: 100;
+	cursor: pointer;
+	transition: all .15s ease-in-out;
+	background-color: #f96332;
+	margin:0 15px;
+	height: 50px;
+}
+.footer-btn button:hover{
+	background-color:#fa7a50;
+	box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.17);
+}
+.fool{
+	display: flex;
+	width: 80%;
+	margin:0 auto;
+	justify-content: center;
+}
+.showImg{
+	width: 80%;
+	margin: 0 auto;
+	display: flex;
+	position: relative;
+	z-index: 99;
+}
+.showImg img{
+	width:100px;
+	height: 100px;
+	display: none;
+	border-radius: 10px;
+}
+.addImg{
+	background: url(../img/addImg.png) no-repeat center !important ;
+	background-size: 80% !important;
+	border-radius: 10px;
+	width: 100px;
+	height: 100px;
+	display: block;
+	background-color: rgba(255, 255, 255, 0.1) !important;
+	margin-right: 100px;
+}
